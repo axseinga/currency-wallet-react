@@ -1,13 +1,14 @@
 import React from "react";
+import StyledWallet from "./styled/Wallet.styled";
 import Sidebar from "./Sidebar";
 import WalletActive from "./WalletActive";
 
 const Wallet = () => {
     return (
-        <div style={{ display: "flex", with: "100vw" }}>
+        <StyledWallet>
             <Sidebar />
             <WalletActive />
-        </div>
+        </StyledWallet>
     );
 };
 
