@@ -1,11 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Wallet from "./components/Wallet";
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div
+            style={{
+                width: "100%",
+                height: "100vh",
+                backgroundColor: "lightgray",
+            }}
+        >
+            <Wallet />
+        </div>
+    );
+};
 
 export default App;
