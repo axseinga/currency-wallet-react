@@ -22,7 +22,15 @@ const initState = {
 };
 
 const walletReducer = (state = initState, action) => {
-    return state;
+    switch (action.type) {
+        case "ADD_PURCHASE":
+            return {
+                ...state,
+                data: [...state.data, action.payload.purchase],
+            };
+        default:
+            return state;
+    }
 };
 
 export default walletReducer;

@@ -6,10 +6,11 @@ import WalletActive from "./WalletActive";
 
 const Wallet = () => {
     const { data } = useSelector((state) => state.wallet);
+
     return (
         <StyledWallet>
             <Sidebar />
-            <WalletActive data={data}/>
+            <WalletActive data={data} />
         </StyledWallet>
     );
 };

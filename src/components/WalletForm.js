@@ -1,5 +1,8 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import useInputState from "../hooks/useInputState";
+import { useDispatch } from "react-redux";
+import { addPurchaseAction } from "../modules/wallet/wallet.actions";
 import StyledWalletForm from "./styled/WalletForm.styled";
 
 const WalletForm = () => {
@@ -8,8 +11,20 @@ const WalletForm = () => {
     const [date, handleDate, resetDate] = useInputState("2021-11-19");
     const [rate, handleRate, resetRate] = useInputState("");
 
+    const purchase = {
+        id: uuidv4(),
+        curr: currency,
+        amount: amount,
+        purchaseDate: date,
+        purchasePrice: rate,
+    };
+
+    const dispatch = useDispatch();
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(purchase);
+        dispatch(addPurchaseAction(purchase));
         resetCurrency();
         resetAmount();
         resetDate();
