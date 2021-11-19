@@ -1,10 +1,16 @@
 import React from "react";
+import StyledWalletActive from "./styled/WalletActive.styled";
+import WalletForm from "./WalletForm";
+import WalletHistory from "./WalletHistory";
+import WalletMain from "./WalletMain";
 
-const WalletActive = () => {
+const WalletActive = (props) => {
     return (
-        <div style={{ border: "1px solid green", width: "90%" }}>
-            To bedzie miejsce na wyswietlanie strony
-        </div>
+        <StyledWalletActive>
+            <WalletMain />
+            <WalletForm />
+            <WalletHistory data={props.data} />
+        </StyledWalletActive>
     );
 };
 
