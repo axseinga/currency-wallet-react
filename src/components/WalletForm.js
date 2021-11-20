@@ -6,7 +6,7 @@ import { addPurchaseAction } from "../modules/wallet/wallet.actions";
 import StyledWalletForm from "./styled/WalletForm.styled";
 
 const WalletForm = () => {
-    const [currency, handleCurrency, resetCurrency] = useInputState("EUR");
+    const [currency, handleCurrency, resetCurrency] = useInputState("GBP");
     const [amount, handleAmount, resetAmount] = useInputState("");
     const [date, handleDate, resetDate] = useInputState("2021-11-19");
     const [rate, handleRate, resetRate] = useInputState("");
@@ -42,7 +42,7 @@ const WalletForm = () => {
                     value={currency}
                     onChange={handleCurrency}
                 >
-                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
                     <option value="USD">USD</option>
                     <option value="PLN">PLN</option>
                 </select>
