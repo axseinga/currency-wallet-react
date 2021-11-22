@@ -7,7 +7,7 @@ import WalletMain from "./WalletMain";
 const WalletActive = (props) => {
     return (
         <StyledWalletActive>
-            <WalletMain />
+            <WalletMain data={props.data} />
             <WalletForm rates={props.rates} />
             <WalletHistory data={props.data} />
         </StyledWalletActive>

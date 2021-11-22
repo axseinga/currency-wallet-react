@@ -11,14 +11,10 @@ const WalletForm = (props) => {
         useInputState("GBP");
     const [amount, handleAmount, setAmount, resetAmount] = useInputState("");
     const [date, handleDate, setDate, resetDate] = useInputState("2021-11-19");
-
     const [rate, handleRate, setRate, resetRate] = useInputState("");
 
     useEffect(() => {
         dispatch(getSuggestedRate(date, currency));
-        console.log("pod tym");
-        console.log(props.rates.suggestedRate.rates);
-        console.log(currency);
         const suggestedRate =
             props.rates.suggestedRate.rates[currency].toFixed(2);
         setRate(suggestedRate);
@@ -41,7 +37,6 @@ const WalletForm = (props) => {
         resetAmount();
         resetDate();
         resetRate();
-        console.log("handling submit");
     };
 
     return (
