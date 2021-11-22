@@ -18,14 +18,31 @@ const WalletHistory = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.data.map((row, index) => (
-                        <tr key={index}>
-                            <td>{row.curr}</td>
-                            <td>{row.amount}</td>
-                            <td>{row.purchaseDate}</td>
-                            <td>{row.purchasePrice}</td>
-                        </tr>
-                    ))}
+                    {props.data.map((row, index) => {
+                        const {
+                            curr,
+                            amount,
+                            purchaseDate,
+                            purchasePrice,
+                            currentRate,
+                        } = row;
+                        const currentValue = amount * currentRate;
+                        const profitLoss =
+                            currentValue - amount * purchasePrice;
+                        const percent = profitLoss / 100;
+                        console.log(percent);
+                        return (
+                            <tr key={index}>
+                                <td>{curr}</td>
+                                <td>{amount}</td>
+                                <td>{purchaseDate}</td>
+                                <td>{purchasePrice}</td>
+                                <td>{currentRate}</td>
+                                <td>{currentValue.toFixed(0)}</td>
+                                <td>{profitLoss.toFixed(0)}</td>
+                            </tr>
+                        );
+                    })}
                 </tbody>
             </table>
         </StyledWalletHistory>

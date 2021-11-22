@@ -1,26 +1,22 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import StyledWallet from "./styled/Wallet.styled";
 import Sidebar from "./Sidebar";
 import WalletActive from "./WalletActive";
-import { fetchCurrentRate } from "../modules/api/api.api";
+import { save } from "../modules/api/api.operation";
 
 const Wallet = () => {
     const { data } = useSelector((state) => state.wallet);
+    const rates = useSelector((state) => state.api);
 
     const dispatch = useDispatch();
 
-    const getCurrentRate = useCallback(async (currency) => {
-        let currentRate = await dispatch(fetchCurrentRate(currency));
-        return currentRate;
-    }, []);
-
     useEffect(() => {
+        dispatch(save());
         data.map((purchase) => {
-            purchase.currentRate = getCurrentRate(purchase.curr);
+            purchase.currentRate = rates.rates[purchase.curr].toFixed(2);
         });
-        console.log(data);
-    });
+    }, [data]);
 
     return (
         <StyledWallet>

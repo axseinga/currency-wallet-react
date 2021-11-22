@@ -49,6 +49,7 @@ const WalletForm = () => {
                 <label htmlFor="amount">Amount</label>
                 <input
                     type="number"
+                    min="1"
                     name="amount"
                     value={amount}
                     onChange={handleAmount}
