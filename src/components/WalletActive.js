@@ -8,7 +8,7 @@ const WalletActive = (props) => {
     return (
         <StyledWalletActive>
             <WalletMain />
-            <WalletForm />
+            <WalletForm rates={props.rates} />
             <WalletHistory data={props.data} />
         </StyledWalletActive>
     );

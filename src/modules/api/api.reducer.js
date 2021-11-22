@@ -1,5 +1,6 @@
 const initState = {
     rates: {},
+    suggestedRate: null,
 };
 
 const apiReducer = (state = initState, action) => {
@@ -7,7 +8,14 @@ const apiReducer = (state = initState, action) => {
         case "SAVE_CURRENT_RATES":
             console.log(action.payload.rates);
             return {
+                ...state,
                 rates: action.payload.rates,
+            };
+        case "SAVE_SUGGESTED_RATE":
+            console.log(action.payload.rate);
+            return {
+                ...state,
+                suggestedRate: action.payload.rate,
             };
         default:
             return state;

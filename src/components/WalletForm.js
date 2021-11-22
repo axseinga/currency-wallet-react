@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import useInputState from "../hooks/useInputState";
 import { useDispatch } from "react-redux";
 import { addPurchaseAction } from "../modules/wallet/wallet.actions";
 import StyledWalletForm from "./styled/WalletForm.styled";
+import { getSuggestedRate } from "../modules/api/api.operation";
 
-const WalletForm = () => {
-    const [currency, handleCurrency, resetCurrency] = useInputState("GBP");
-    const [amount, handleAmount, resetAmount] = useInputState("");
-    const [date, handleDate, resetDate] = useInputState("2021-11-19");
-    const [rate, handleRate, resetRate] = useInputState("");
+const WalletForm = (props) => {
+    const [currency, handleCurrency, setCurrency, resetCurrency] =
+        useInputState("GBP");
+    const [amount, handleAmount, setAmount, resetAmount] = useInputState("");
+    const [date, handleDate, setDate, resetDate] = useInputState("2021-11-19");
+
+    const [rate, handleRate, setRate, resetRate] = useInputState("");
+
+    useEffect(() => {
+        dispatch(getSuggestedRate(date, currency));
+        console.log("pod tym");
+        console.log(props.rates.suggestedRate.rates);
+        console.log(currency);
+        const suggestedRate =
+            props.rates.suggestedRate.rates[currency].toFixed(2);
+        setRate(suggestedRate);
+    }, [currency, date]);
 
     const purchase = {
         id: uuidv4(),
@@ -23,7 +36,6 @@ const WalletForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(purchase);
         dispatch(addPurchaseAction(purchase));
         resetCurrency();
         resetAmount();
@@ -44,6 +56,10 @@ const WalletForm = () => {
                 >
                     <option value="GBP">GBP</option>
                     <option value="USD">USD</option>
+                    <option value="PLN">JPY</option>
+                    <option value="PLN">CHF</option>
+                    <option value="PLN">CAD</option>
+                    <option value="PLN">AUD</option>
                     <option value="PLN">PLN</option>
                 </select>
                 <label htmlFor="amount">Amount</label>

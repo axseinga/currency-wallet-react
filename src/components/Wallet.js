@@ -21,7 +21,7 @@ const Wallet = () => {
     return (
         <StyledWallet>
             <Sidebar />
-            <WalletActive data={data} />
+            <WalletActive data={data} rates={rates}/>
         </StyledWallet>
     );
 };

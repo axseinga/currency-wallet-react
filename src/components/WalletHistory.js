@@ -29,8 +29,10 @@ const WalletHistory = (props) => {
                         const currentValue = amount * currentRate;
                         const profitLoss =
                             currentValue - amount * purchasePrice;
-                        const percent = profitLoss / 100;
-                        console.log(percent);
+                        const previousValue = amount * purchasePrice;
+                        const percent =
+                            ((currentValue - previousValue) / previousValue) *
+                            100;
                         return (
                             <tr key={index}>
                                 <td>{curr}</td>
@@ -39,7 +41,10 @@ const WalletHistory = (props) => {
                                 <td>{purchasePrice}</td>
                                 <td>{currentRate}</td>
                                 <td>{currentValue.toFixed(0)}</td>
-                                <td>{profitLoss.toFixed(0)}</td>
+                                <td>
+                                    {profitLoss.toFixed(0)} (
+                                    {percent.toFixed(2)}%)
+                                </td>
                             </tr>
                         );
                     })}
