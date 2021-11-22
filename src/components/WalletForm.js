@@ -10,7 +10,8 @@ const WalletForm = (props) => {
     const [currency, handleCurrency, setCurrency, resetCurrency] =
         useInputState("GBP");
     const [amount, handleAmount, setAmount, resetAmount] = useInputState("");
-    const [date, handleDate, setDate, resetDate] = useInputState("2021-11-19");
+    const currentDate = new Date().toJSON().slice(0, 10);
+    const [date, handleDate, setDate, resetDate] = useInputState(currentDate);
     const [rate, handleRate, setRate, resetRate] = useInputState("");
 
     useEffect(() => {
@@ -70,7 +71,7 @@ const WalletForm = (props) => {
                     type="date"
                     name="purchaseDate"
                     min="2000-01-01"
-                    max="2021-11-19"
+                    max={currentDate}
                     value={date}
                     onChange={handleDate}
                 ></input>
