@@ -13,6 +13,7 @@ const apiReducer = (state = initState, action) => {
                 error: null,
             };
         case "FETCH_CURRENT_RATE_SUCCESS":
+            console.log(action.payload.rate);
             return {
                 ...state,
                 loading: false,

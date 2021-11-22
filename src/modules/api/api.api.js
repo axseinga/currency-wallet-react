@@ -11,7 +11,7 @@ const baseUrl = "http://api.exchangeratesapi.io/v1";
 export const fetchCurrentRate = (currency) => {
     const url = `${baseUrl}/latest?access_key=${accessKey}&symbols=${currency}`;
 
-    return (dispatch) => {
+    return function thunk(dispatch, getState) {
         dispatch(fetchCurrentRateBegin());
         return fetch(url)
             .then((resp) => {
@@ -25,7 +25,7 @@ export const fetchCurrentRate = (currency) => {
                 const rate = resp.rates[currency];
                 console.log(rate);
                 dispatch(fetchCurrentRateSuccess(rate));
-                return resp;
+                return rate;
             })
             .catch((error) => {
                 dispatch(fetchCurrentRateFailure(error));

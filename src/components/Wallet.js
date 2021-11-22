@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import StyledWallet from "./styled/Wallet.styled";
 import Sidebar from "./Sidebar";
@@ -9,10 +9,18 @@ const Wallet = () => {
     const { data } = useSelector((state) => state.wallet);
 
     const dispatch = useDispatch();
-    /*data.map(
-        (purchase) =>
-            (purchase.currentRate = dispatch(fetchCurrentRate(purchase.curr)))
-    );*/
+
+    const getCurrentRate = useCallback(async (currency) => {
+        let currentRate = await dispatch(fetchCurrentRate(currency));
+        return currentRate;
+    }, []);
+
+    useEffect(() => {
+        data.map((purchase) => {
+            purchase.currentRate = getCurrentRate(purchase.curr);
+        });
+        console.log(data);
+    });
 
     return (
         <StyledWallet>
