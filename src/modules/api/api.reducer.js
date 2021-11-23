@@ -6,7 +6,6 @@ const initState = {
 const apiReducer = (state = initState, action) => {
     switch (action.type) {
         case "SAVE_CURRENT_RATES":
-            console.log(action.payload.rates);
             return {
                 ...state,
                 rates: action.payload.rates,

@@ -15,7 +15,9 @@ const WalletForm = (props) => {
     const [rate, handleRate, setRate, resetRate] = useInputState("");
 
     useEffect(() => {
+        console.log(date, currency);
         dispatch(getSuggestedRate(date, currency));
+        console.log(props.rates.suggestedRate.rates);
         const suggestedRate =
             props.rates.suggestedRate.rates[currency].toFixed(2);
         setRate(suggestedRate);
@@ -53,10 +55,10 @@ const WalletForm = (props) => {
                     >
                         <option value="GBP">GBP</option>
                         <option value="USD">USD</option>
-                        <option value="PLN">JPY</option>
-                        <option value="PLN">CHF</option>
-                        <option value="PLN">CAD</option>
-                        <option value="PLN">AUD</option>
+                        <option value="JPY">JPY</option>
+                        <option value="CHF">CHF</option>
+                        <option value="CAD">CAD</option>
+                        <option value="AUD">AUD</option>
                         <option value="PLN">PLN</option>
                     </select>
                 </label>
