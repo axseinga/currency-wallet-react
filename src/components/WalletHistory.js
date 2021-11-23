@@ -4,7 +4,7 @@ import StyledWalletHistory from "./styled/WalletHistory.styled";
 const WalletHistory = (props) => {
     return (
         <StyledWalletHistory>
-            <h1>History of your purchases</h1>
+            <h2>History of your purchases</h2>
             <table>
                 <thead>
                     <tr>

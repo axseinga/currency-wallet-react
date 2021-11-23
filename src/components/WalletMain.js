@@ -11,7 +11,8 @@ const WalletMain = (props) => {
     return (
         <StyledWalletMain>
             <h1>
-                You have currencies worth of €{total.toFixed(2)} in your wallet
+                You have currencies worth of <span>€{total.toFixed(2)}</span> in
+                your wallet
             </h1>
         </StyledWalletMain>
     );

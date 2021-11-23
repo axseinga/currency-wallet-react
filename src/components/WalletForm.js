@@ -44,44 +44,52 @@ const WalletForm = (props) => {
         <StyledWalletForm>
             <form onSubmit={handleSubmit}>
                 <h2>Add new purchase to your wallet</h2>
-                <label htmlFor="currency">Currency</label>
-                <select
-                    name="currency"
-                    value={currency}
-                    onChange={handleCurrency}
-                >
-                    <option value="GBP">GBP</option>
-                    <option value="USD">USD</option>
-                    <option value="PLN">JPY</option>
-                    <option value="PLN">CHF</option>
-                    <option value="PLN">CAD</option>
-                    <option value="PLN">AUD</option>
-                    <option value="PLN">PLN</option>
-                </select>
-                <label htmlFor="amount">Amount</label>
-                <input
-                    type="number"
-                    min="1"
-                    name="amount"
-                    value={amount}
-                    onChange={handleAmount}
-                ></input>
-                <label htmlFor="purchaseDate">Purchase date:</label>
-                <input
-                    type="date"
-                    name="purchaseDate"
-                    min="2000-01-01"
-                    max={currentDate}
-                    value={date}
-                    onChange={handleDate}
-                ></input>
-                <label htmlFor="purchaseRate">Purchase rate:</label>
-                <input
-                    type="number"
-                    name="purchaseRate"
-                    value={rate}
-                    onChange={handleRate}
-                ></input>
+                <label htmlFor="currency">
+                    Select currency:
+                    <select
+                        name="currency"
+                        value={currency}
+                        onChange={handleCurrency}
+                    >
+                        <option value="GBP">GBP</option>
+                        <option value="USD">USD</option>
+                        <option value="PLN">JPY</option>
+                        <option value="PLN">CHF</option>
+                        <option value="PLN">CAD</option>
+                        <option value="PLN">AUD</option>
+                        <option value="PLN">PLN</option>
+                    </select>
+                </label>
+                <label htmlFor="amount">
+                    Select quantity
+                    <input
+                        type="number"
+                        min="1"
+                        name="amount"
+                        value={amount}
+                        onChange={handleAmount}
+                    ></input>
+                </label>
+                <label htmlFor="purchaseDate">
+                    Purchase date:
+                    <input
+                        type="date"
+                        name="purchaseDate"
+                        min="2000-01-01"
+                        max={currentDate}
+                        value={date}
+                        onChange={handleDate}
+                    ></input>
+                </label>
+                <label htmlFor="purchaseRate">
+                    Purchase rate:
+                    <input
+                        type="number"
+                        name="purchaseRate"
+                        value={rate}
+                        onChange={handleRate}
+                    ></input>
+                </label>
                 <button type="submit">Add purchase</button>
             </form>
         </StyledWalletForm>

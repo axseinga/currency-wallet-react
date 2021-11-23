@@ -4,10 +4,13 @@ import StyledSidebar from "./styled/Sidebar.styled";
 const Sidebar = () => {
     return (
         <StyledSidebar>
-            To bedzie sidebar
-            <button>Wallet</button>
-            <button>Add currency</button>
-            <button>History</button>
+            <h2>Online Wallet</h2>
+            <h3>Currency exchange</h3>
+            <div>
+                <button>Wallet</button>
+                <button>Add currency</button>
+                <button>History</button>
+            </div>
         </StyledSidebar>
     );
 };
