@@ -2,15 +2,17 @@ import { fetchCurrentRates, fetchRateForDate } from "./api.api";
 import { saveCurrentRates, saveSuggestedRate } from "./api.actions";
 
 export const save = () => {
-    return async function thunk(dispatch, getState) {
-        const rates = await fetchCurrentRates();
-        dispatch(saveCurrentRates(rates));
+    return function thunk(dispatch, getState) {
+        fetchCurrentRates().then((rates) => {
+            dispatch(saveCurrentRates(rates));
+        });
     };
 };
 
 export const getSuggestedRate = (date, currency) => {
-    return async function thunk(dispatch, getState) {
-        const rate = await fetchRateForDate(date, currency);
-        dispatch(saveSuggestedRate(rate));
+    return function thunk(dispatch, getState) {
+        fetchRateForDate(date, currency).then((rate) => {
+            dispatch(saveSuggestedRate(rate));
+        });
     };
 };
