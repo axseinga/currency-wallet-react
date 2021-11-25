@@ -4,7 +4,7 @@ import useInputState from "../hooks/useInputState";
 import { useDispatch } from "react-redux";
 import { addPurchaseAction } from "../modules/wallet/wallet.actions";
 import StyledWalletForm from "./styled/WalletForm.styled";
-import { getSuggestedRate } from "../modules/api/api.operation";
+import { getSuggestedRate } from "../modules/api/api.actions";
 
 const WalletForm = (props) => {
     const [currency, handleCurrency, setCurrency, resetCurrency] =
