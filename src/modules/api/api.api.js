@@ -16,7 +16,6 @@ export const fetchCurrentRates = () => {
         })
         .then((resp) => {
             const rates = resp.rates;
-            console.log(rates);
             return rates;
         })
         .catch((error) => {
@@ -37,8 +36,9 @@ export const fetchRateForDate = (date, currency) => {
             throw Error(resp.statusText);
         })
         .then((resp) => {
-            console.log(resp);
-            return resp;
+            const rate = resp.rates[currency].toFixed(2);
+            console.log(rate);
+            return rate;
         })
         .catch((err) => {
             console.error(err);

@@ -11,7 +11,6 @@ const apiReducer = (state = initState, action) => {
                 rates: action.payload.rates,
             };
         case "SAVE_SUGGESTED_RATE":
-            console.log(action.payload.rate);
             return {
                 ...state,
                 suggestedRate: action.payload.rate,

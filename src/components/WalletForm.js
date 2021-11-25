@@ -12,16 +12,17 @@ const WalletForm = (props) => {
     const [amount, handleAmount, setAmount, resetAmount] = useInputState("");
     const currentDate = new Date().toJSON().slice(0, 10);
     const [date, handleDate, setDate, resetDate] = useInputState(currentDate);
-    const [rate, handleRate, setRate, resetRate] = useInputState("");
+    const [rate, handleRate, setRate, resetRate] = useInputState(
+        props.rates.suggestedRate
+    );
 
     useEffect(() => {
-        console.log(date, currency);
         dispatch(getSuggestedRate(date, currency));
-        console.log(props.rates.suggestedRate.rates);
-        const suggestedRate =
-            props.rates.suggestedRate.rates[currency].toFixed(2);
-        setRate(suggestedRate);
     }, [currency, date]);
+
+    useEffect(() => {
+        setRate(props.rates.suggestedRate);
+    }, [props.rates.suggestedRate]);
 
     const purchase = {
         id: uuidv4(),
