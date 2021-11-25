@@ -13,6 +13,7 @@ const Wallet = () => {
 
     useEffect(() => {
         dispatch(save());
+        console.log(data);
         data.map((purchase) => {
             purchase.currentRate = rates.rates[purchase.curr].toFixed(2);
         });

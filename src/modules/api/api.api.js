@@ -24,7 +24,6 @@ export const fetchCurrentRates = () => {
 };
 
 export const fetchRateForDate = (date, currency) => {
-    console.log(`to wchodzi do api: ${date}, ${currency}`);
     const url = `${baseUrl}/${date}?access_key=${accessKey}&symbols=${currency}`;
 
     return fetch(url)
@@ -37,7 +36,6 @@ export const fetchRateForDate = (date, currency) => {
         })
         .then((resp) => {
             const rate = resp.rates[currency].toFixed(2);
-            console.log(rate);
             return rate;
         })
         .catch((err) => {
