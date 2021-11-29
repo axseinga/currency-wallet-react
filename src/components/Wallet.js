@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import StyledWallet from "./styled/Wallet.styled";
 import Sidebar from "./Sidebar";
@@ -9,11 +9,12 @@ const Wallet = () => {
     const { data } = useSelector((state) => state.wallet);
     const rates = useSelector((state) => state.api);
 
+    const [currentPage, setCurrentPage] = useState(3);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(save());
-        console.log(data);
         data.map((purchase) => {
             purchase.currentRate = rates.rates[purchase.curr].toFixed(2);
         });
@@ -21,8 +22,8 @@ const Wallet = () => {
 
     return (
         <StyledWallet>
-            <Sidebar />
-            <WalletActive data={data} rates={rates} />
+            <Sidebar setCurrentPage={setCurrentPage} />
+            <WalletActive data={data} rates={rates} currentPage={currentPage} />
         </StyledWallet>
     );
 };

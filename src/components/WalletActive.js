@@ -5,11 +5,20 @@ import WalletHistory from "./WalletHistory";
 import WalletMain from "./WalletMain";
 
 const WalletActive = (props) => {
+    const showCurrentPage = (currentPage) => {
+        if (currentPage === 1) {
+            return <WalletMain data={props.data} />;
+        }
+        if (currentPage === 2) {
+            return <WalletForm rates={props.rates} />;
+        }
+        if (currentPage === 3) {
+            return <WalletHistory data={props.data} />;
+        }
+    };
     return (
         <StyledWalletActive>
-            <WalletMain data={props.data} />
-            <WalletForm rates={props.rates} />
-            <WalletHistory data={props.data} />
+            {showCurrentPage(props.currentPage)}
         </StyledWalletActive>
     );
 };
