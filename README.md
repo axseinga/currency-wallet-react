@@ -21,8 +21,6 @@ The goal was to code the app with the functionality of a currency wallet that ca
 
 ### Video
 
-<video src='./redux-video.mov' width=180/>
-
 ### Links
 
 -   Solution URL: [Check out my code](https://github.com/axseinga/currency-wallet-react)
