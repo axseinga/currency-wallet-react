@@ -29,6 +29,24 @@ const StyledSidebar = styled.section`
             margin: 0.2rem 0;
         }
     }
+
+    @media (max-width: 1200px) {
+        width: 30%;
+    }
+
+    @media (max-width: 1000px) {
+        width: 100%;
+        height: 20vh;
+
+        & div {
+            flex-direction: row;
+            justify-content: space-around;
+
+            & button {
+                width: 200px;
+            }
+        }
+    }
 `;
 
 export default StyledSidebar;

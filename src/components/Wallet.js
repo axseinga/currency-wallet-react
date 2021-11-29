@@ -9,7 +9,7 @@ const Wallet = () => {
     const { data } = useSelector((state) => state.wallet);
     const rates = useSelector((state) => state.api);
 
-    const [currentPage, setCurrentPage] = useState(3);
+    const [currentPage, setCurrentPage] = useState(1);
 
     const dispatch = useDispatch();
 
