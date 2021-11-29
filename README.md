@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# devmentor.pl - React: Redux Enhancement / Currency Wallet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
 
-## Available Scripts
+-   [Overview](#overview)
+    -   [The challenge](#the-challenge)
+    -   [Video](#video)
+    -   [Links](#links)
+-   [My process](#my-process)
+    -   [Built with](#built-with)
+    -   [What I learned](#what-i-learned)
+    -   [Useful resources](#useful-resources)
+-   [Author](#author)
+-   [Acknowledgments](#acknowledgments)
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+### The challenge
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The goal was to code the app with the functionality of a currency wallet that calculates the profit or loss of currency exchange. The User can add data (currency, amount, and date of the purchase) about each purchase by filling the form. The current rate is proposed based on the date that the User chooses but can be modified. The main page displays the total of invested money and particular currencies. On the "history" page the User can check the history of purchases with current value and profit/loss calculated. The wallet had to be implemented using React Redux state management with two separate reducers for LocalStorage and currency exchange API.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Video
 
-### `npm test`
+<video src='./redux-video.mov' width=180/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Links
 
-### `npm run build`
+-   Solution URL: [Check out my code](https://github.com/axseinga/currency-wallet-react)
+-   Live Site URL: [and see live site here!](https://axseinga-currency-wallet-react.netlify.app/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## My process
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built with
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   React
+-   Create React app
+-   React Hooks
+-   React Redux
+-   Thunk middleware
+-   Styled Components
 
-### `npm run eject`
+### What I learned
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I had a chance to practice my knowledge with implementing the solution with Redux. During the process, I learned about folders architecture and separating files with actions, API calls, reducers, and types. I learned how to connect them and dispatch actions to the reducer to change the state in the store. I learned about saving data in LocalStorage using Redux store and how to retrieve the same data back to the store after loading the page. I had a chance to get to know and use subscribe method to listen for changes in the store. Because of this challenge, I understand Redux more. I struggled a bit again with the asynchronous side of React and the way the state is updated. To be able to update the current rate based on the date and currency chosen by the User I had to find a way to update it only after the state is updated. After a few unsuccessful attempts, I understood the power of useEffect Hooks and its dependencies and came with the solution:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+useEffect(() => {
+        dispatch(save());
+        data.map((purchase) => {
+            purchase.currentRate = rates.rates[purchase.curr].toFixed(2);
+        });
+    }, [data]);
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Useful resources
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-   [React Redux](https://redux.js.org/introduction/getting-started)
+-   [Redux course](https://fullstak.pl/Kurs-Podstawy-Redux/) - polish language, course by Artur Chmaro.
+-   [Exchange API](https://exchangeratesapi.io/)
 
-## Learn More
+## Author
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-   Frontend Mentor - [@Axseinga](https://www.frontendmentor.io/profile/yourusername)
+-   LinkedIn - [Agnieszka Urbanowicz](https://www.linkedin.com/in/agnieszka-urbanowicz-051147151/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Acknowledgments
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thanks to my [Mentor - devmentor.pl](https://devmentor.pl/) - for providing me with this task and for code review.
