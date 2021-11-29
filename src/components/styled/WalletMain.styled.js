@@ -15,6 +15,10 @@ const StyledWalletMain = styled.div`
             color: #2da1ef;
         }
     }
+
+    & li {
+        padding: 0.5rem;
+    }
 `;
 
 export default StyledWalletMain;
