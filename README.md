@@ -21,6 +21,10 @@ The goal was to code the app with the functionality of a currency wallet that ca
 
 ### Video
 
+
+https://user-images.githubusercontent.com/46648993/143940172-818f984d-d9ca-4060-a3eb-c421459c5431.mov
+
+
 ### Links
 
 -   Solution URL: [Check out my code](https://github.com/axseinga/currency-wallet-react)
