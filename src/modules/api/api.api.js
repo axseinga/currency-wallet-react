@@ -1,6 +1,6 @@
 const accessKey = process.env.REACT_APP_ACCESS_KEY;
 
-const baseUrl = "https://api.exchangeratesapi.io/v1";
+const baseUrl = "http://api.exchangeratesapi.io/v1";
 
 export const fetchCurrentRates = () => {
     const currency = "USD, JPY, GBP, CHF, CAD, AUD";
