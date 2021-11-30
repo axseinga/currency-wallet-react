@@ -27,7 +27,7 @@ const WalletMain = (props) => {
         const currInWallet = getCurrenciesInWallet();
         return Object.entries(currInWallet).map(([key, value]) => {
             return (
-                <li>
+                <li key={key}>
                     You have {key} worth of €
                     {value.reduce((a, b) => a + b, 0).toFixed(2)}
                 </li>

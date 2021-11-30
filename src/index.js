@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import reportWebVitals from "./reportWebVitals";
 import GlobalStyles from "./components/styled/GlobalStyles";
+require("dotenv").config();
 
 ReactDOM.render(
     <React.StrictMode>

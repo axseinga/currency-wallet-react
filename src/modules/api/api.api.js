@@ -1,4 +1,4 @@
-import accessKey from "../../config";
+const accessKey = process.env.REACT_APP_ACCESS_KEY;
 
 const baseUrl = "http://api.exchangeratesapi.io/v1";
 
