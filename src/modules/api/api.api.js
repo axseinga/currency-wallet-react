@@ -3,7 +3,7 @@ const accessKey = process.env.REACT_APP_ACCESS_KEY;
 const baseUrl = "https://api.exchangeratesapi.io/v1";
 
 export const fetchCurrentRates = () => {
-    const currency = "USD, JPY, GBP, CHF, CAD, AUD";
+    const currency = "USD,JPY,GBP,CHF,CAD,AUD";
     const url = `${baseUrl}/latest?access_key=${accessKey}&symbols=${currency}`;
 
     return fetch(url)
