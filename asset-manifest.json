@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/currency-wallet-react/static/js/main.30a20729.chunk.js",
-    "main.js.map": "/currency-wallet-react/static/js/main.30a20729.chunk.js.map",
+    "main.js": "/currency-wallet-react/static/js/main.00e7cedd.chunk.js",
+    "main.js.map": "/currency-wallet-react/static/js/main.00e7cedd.chunk.js.map",
     "runtime-main.js": "/currency-wallet-react/static/js/runtime-main.5797804a.js",
     "runtime-main.js.map": "/currency-wallet-react/static/js/runtime-main.5797804a.js.map",
     "static/js/2.985be3b0.chunk.js": "/currency-wallet-react/static/js/2.985be3b0.chunk.js",
@@ -14,6 +14,6 @@
   "entrypoints": [
     "static/js/runtime-main.5797804a.js",
     "static/js/2.985be3b0.chunk.js",
-    "static/js/main.30a20729.chunk.js"
+    "static/js/main.00e7cedd.chunk.js"
   ]
 }
